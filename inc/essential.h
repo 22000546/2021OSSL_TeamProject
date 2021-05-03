@@ -25,6 +25,11 @@ int empty(Node* course);
 //목록의 마지막 노드를 가리킨다.
 Node* last(Node* course);
 
+// 사용자에게 입력받은 강의 유형 번호에 맞는 문자열을 반환한다.
+// 1 == 전공
+// 2 == 교양
+char* courseType(int type);
+
 // 강의를 추가한다.
 Node* createCourse(Node* course);
 
