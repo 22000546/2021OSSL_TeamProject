@@ -1,37 +1,58 @@
-// ë°°ì—´
+// ¿¬°á ¸®½ºÆ®
 #ifndef __ESSENTIAL_H__
 #define __ESSENTIAL_H__
 #include <stdio.h>
 
-// êµ¬ì¡°ì²´ ì •ì˜
-// ê³¼ëª©ëª…, ì „ê³µ/êµì–‘ ì—¬ë¶€, í•™ì , í‰ì 
-typedef struct
-{
+// type °­ÀÇÁ¾·ù(Àü°ø:1, ±³¾ç:2)
+// name °­ÀÇ¸í
+// credit ÇĞÁ¡¼ö
+// grade ÆòÁ¡(¾ËÆÄºª) : A+, A0, B+, B0, C+, C0, D+, D0, F
+typedef struct listNode{
+    int type;    
     char name[20];
-    int type;   
     int credit;
-    double score[3];
-}course;
+    char grade[4]; // [A] [+] [\n] [\0]
+    struct listNode* next;
+}Node;
 
-// ê³¼ëª© ì¶”ê°€
-int createCourse(course c);
+//Ãß°¡µÈ ¸ñ·ÏÀÇ °³¼ö¸¦ ¹İÈ¯ÇÑ´Ù.
+int size(Node* course);
 
-// ì¶”ê°€/ìˆ˜ì •í•œ ê³¼ëª© ì¶œë ¥
-void readCourse(course c[]);
+//¸ñ·ÏÀÌ ºñ¾îÀÖ´ÂÁö È®ÀÎÇÑ´Ù.
+//ºñ¾îÀÖÀ» °æ¿ì(¾Æ¹«°Íµµ Ãß°¡µÇÁö ¾ÊÀº °æ¿ì) 1¹İÈ¯, ±× ¿Ü 0 ¹İÈ¯
+int empty(Node* course);
 
-// ê³¼ëª© ìˆ˜ì •
-// ìˆ˜ì •í•  ê³¼ëª© ì…ë ¥ë°›ê³  êµ¬ì¡°ì²´ ë©¤ë²„ë³„ë¡œ ìˆ˜ì •í•  ìˆ˜ ìˆë„ë¡ ì„ íƒí•˜ì—¬ ìˆ˜ì •í•˜ê¸°.
-void updateCourse(course c);
+//¸ñ·ÏÀÇ ¸¶Áö¸· ³ëµå¸¦ °¡¸®Å²´Ù.
+Node* last(Node* course);
 
-// ê³¼ëª© ì‚­ì œ
-// ê³¼ëª©ëª…ì— null ëŒ€ì….
-int deleteCourse(course c);
+// »ç¿ëÀÚ¿¡°Ô ÀÔ·Â¹ŞÀº °­ÀÇ À¯Çü ¹øÈ£¿¡ ¸Â´Â ¹®ÀÚ¿­À» ¹İÈ¯ÇÑ´Ù.
+// 1 == Àü°ø
+// 2 == ±³¾ç
+char* courseType(int type);
 
-// ì¶”ê°€í•œ ê³¼ëª© ì €ì¥
-// í…ìŠ¤íŠ¸íŒŒì¼ course.txt
-// ë°ì´í„° ê°„ ê³µë°± ì¶œë ¥
-void saveData(FILE* fcourse, course c[], int count, int index);
+// °­ÀÇ¸¦ Ãß°¡ÇÑ´Ù.
+Node* createCourse(Node* course);
 
-// í…ìŠ¤íŠ¸ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
-int loadData(course c[]);
+// Ãß°¡/¼öÁ¤ÇÑ °­ÀÇ¸¦ Ãâ·ÂÇÑ´Ù.
+void readCourse(Node* course);
+
+// °­ÀÇ¸¦ ¼öÁ¤ÇÑ´Ù.
+// ¼öÁ¤ÇÒ °­ÀÇÀÇ ¹øÈ£¸¦ ÀÔ·Â¹Ş°í ±¸Á¶Ã¼ ¸â¹öº°·Î ¼öÁ¤ÇÒ ¼ö ÀÖµµ·Ï ¼±ÅÃÇÑ´Ù.
+// Àü°ø/±³¾ç ¿©ºÎ, °­ÀÇ¸í, ÇĞÁ¡¼ö, ÆòÁ¡
+Node* updateCourse(Node* course, int index);
+
+// °­ÀÇ¸¦ »èÁ¦ÇÑ´Ù.
+// »èÁ¦ÇÒ °­ÀÇÀÇ ¹øÈ£¸¦ ÀÔ·Â¹Ş°í ÇØ´ç ³ëµå¸¦ µ¿ÀûÇØÁ¦ÇÑ´Ù.
+Node* deleteCourse(Node* course, int index);
+
+// Ãß°¡ÇÑ °­ÀÇ¸¦ ÀúÀåÇÑ´Ù.
+// ÅØ½ºÆ® ÆÄÀÏ course.txt
+// µ¥ÀÌÅÍ °£ °ø¹é Ãâ·ÂÇÏµµ·Ï
+void saveData(FILE* fcourse, Node* course);
+
+// ÅØ½ºÆ® ÆÄÀÏ¿¡ ÀúÀåÇÑ °­ÀÇ ¸ñ·ÏÀ» ºÒ·¯¿Â´Ù.
+Node* loadData(Node* course);
+
+// »ç¿ëÀÚ¿¡°Ô Ãß°¡µÈ °­ÀÇ ¸ñ·Ï ¹øÈ£¸¦ ÀÔ·Â¹Ş´Â´Ù.
+int selectCourseNo(Node* course);
 #endif
