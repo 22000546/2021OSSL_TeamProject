@@ -3,13 +3,13 @@
 #include "essential.h"
 
 // 과목 이름으로 검색하는 함수
-int searchName(Node* course); 
+void searchName(Node* course); 
 
 // 과목의 학점으로 검색하는 함수
-int searchCredit(Node* course); 
+void searchCredit(Node* course); 
 
 // 평점으로 검색하는 함수
-int searchGrade(Node* course); 
+void searchGrade(Node* course); 
 
 // 평점 계산과 관련된 연산을 진행하는 함수
 void calculate();
