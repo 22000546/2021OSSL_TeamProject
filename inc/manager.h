@@ -19,4 +19,7 @@ float calculateMajorGrade(Node* course);
 
 // 입력된 데이터 중 교양 과목의 평점 평균을 계산하는 함수
 float calculateElectiveGrade(Node* course);
+
+// 주어진 평점을 백분위 점수로 환산하는 함수
+float convertToScore(float grade);
 #endif
