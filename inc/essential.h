@@ -25,6 +25,10 @@ int empty(Node* course);
 //목록의 마지막 노드를 가리킨다.
 Node* last(Node* course);
 
+//모든 노드를 삭제한다.
+//프로그램 종료시, 또는 전부 삭제시 사용
+Node* clear(Node* course);
+
 // 사용자에게 입력받은 강의 유형 번호에 맞는 문자열을 반환한다.
 // 1 == 전공
 // 2 == 교양
@@ -55,4 +59,7 @@ Node* loadData(Node* course);
 
 // 사용자에게 추가된 강의 목록 번호를 입력받는다.
 int selectCourseNo(Node* course);
+
+// 메뉴를 출력하고 그 선택값을 반환한다.
+int printMenu(void);
 #endif
