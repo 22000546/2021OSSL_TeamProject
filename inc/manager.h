@@ -11,6 +11,12 @@ int searchCredit(Node* course);
 // 평점으로 검색하는 함수
 int searchGrade(Node* course); 
 
+// 평점 계산과 관련된 연산을 진행하는 함수
+void calculate();
+
+// 원하는 계산 결과를 선택하여 반환하는 함수
+int pickCalculationMode();
+
 // 모든 입력된 데이터의 평점 평균을 계산하는 함수
 float calculateTotalGrade(Node* course); 
 
