@@ -32,4 +32,33 @@ void searchName(Node* course) {
   }
 }
 
+void searchCredit(Node* course) {
+  int search;
+  int scnt = 0;
+
+  printf("찾으시는 과목의 학점을 입력해주세요 : ");
+  scanf("%d", &search);
+
+  for(Node* i = course; i != NULL; i = i->next) {
+    if(i->credit == search) {
+      scnt ++;
+    }
+  }
+
+  if(scnt != 0) {
+    printf("=> 검색 결과입니다.\n");
+    printf("\n번호   유형       이름         학점     평점\n");
+    printf("===========================================\n");
+    int index = 1;
+    for(Node* i = course; i != NULL; i = i->next) {
+     if(i->credit == search) {
+        printf("%02d     %s       %-8s       %d       %s\n", index, courseType(i->type), i->name, i->credit, i->grade);
+        index ++;
+     }
+    }
+  } else {
+    printf("찾으시는 결과가 없습니다.\n");
+  }
+}
+
 #endif
