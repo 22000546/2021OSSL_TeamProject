@@ -64,6 +64,9 @@ int main(void)
             case 8:
                 searchCredit(head);
                 break;
+            case 9:
+                searchGrade(head);
+                break;
         }
     }
 }
