@@ -7,7 +7,7 @@ void searchName(Node* course) {
   char search[20];
   int scnt = 0;
 
-  printf("찾으시는 이름을 입력해주세요 : ");
+  printf("찾으시는 과목의 이름을 입력해주세요 : ");
   scanf("%s", search);
 
   for(Node* i = course; i != NULL; i = i->next) {
@@ -17,6 +17,7 @@ void searchName(Node* course) {
   }
 
   if(scnt != 0) {
+    printf("=> 검색 결과입니다.\n");
     printf("\n번호   유형       이름         학점     평점\n");
     printf("===========================================\n");
     int index = 1;
