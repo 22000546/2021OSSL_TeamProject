@@ -61,6 +61,9 @@ int main(void)
             case 7:
                 searchName(head);
                 break;
+            case 8:
+                searchCredit(head);
+                break;
         }
     }
 }
