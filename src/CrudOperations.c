@@ -205,7 +205,7 @@ Node* deleteCourse(Node* course, int index)
         course = course->next;
         free(target);
 
-        return NULL;
+        return course;
     }
     Node* prev = NULL;
     Node* curr = course;
