@@ -27,5 +27,5 @@ float calculateMajorGrade(Node* course);
 float calculateElectiveGrade(Node* course);
 
 // 주어진 평점을 백분위 점수로 환산하는 함수
-float convertToScore(float grade);
+float convertToScore(char grade);
 #endif
