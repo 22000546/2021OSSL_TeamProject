@@ -40,12 +40,19 @@ int main(void)
                 break;
             // 수정
             case 3:
+                if(empty(head)) 
+                    printf("오류 : 수정할 강의가 없습니다!\n");
+                else{
+                    readCourse(head);
+                    head = updateCourse(head, selectCourseNo(head));
+                }
                 break;
             // 삭제
             case 4:
                 if(empty(head)) 
-                    printf("오류 : 추가된 강의가 없습니다!\n");
+                    printf("오류 : 삭제할 강의가 없습니다!\n");
                 else {
+                    readCourse(head);
                     head = deleteCourse(head, selectCourseNo(head));
                     printf("삭제되었습니다.\n");
                 }
