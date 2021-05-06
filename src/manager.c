@@ -93,4 +93,21 @@ void searchGrade(Node* course) {
   }
 }
 
+
+int pickCalculationMode() {
+  int result;
+  int major, elective, score;
+
+  printf("=> 결과를 보고 싶은 계산을 선택해주세요.\n");
+  printf("=> 전공 평점평균을 선택하시겠습니까? (예:1 / 아니오:0) : ");
+  scanf("%d", &major);
+  printf("=> 교양 평점평균을 선택하시겠습니까? (예:1 / 아니오:0) : ");
+  scanf("%d", &elective);
+  printf("=> 백분위 환산 점수를 선택하시겠습니까? (예:1 / 아니오:0) : ");
+  scanf("%d", &score);
+
+  result = major + elective*10 + score*100;
+  return result;
+}
+
 #endif
