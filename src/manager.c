@@ -93,6 +93,18 @@ void searchGrade(Node* course) {
   }
 }
 
+void calculate(Node* course) {
+  int mode = pickCalculationMode();
+
+  calculateToTalGrade();
+  if(mode / 100 == 1)
+    calculateMajorGrade(course);
+  if(mode / 10 == 1)
+    calculateElectiveGrade(course);
+  if(mode / 1 == 1)
+    convertToScore(course);
+}
+
 int pickCalculationMode() {
   int result;
   int major, elective, score;
