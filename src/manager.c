@@ -105,7 +105,7 @@ int pickCalculationMode() {
   printf("=> 백분위 환산 점수를 선택하시겠습니까? (예:1 / 아니오:0) : ");
   scanf("%d", &score);
 
-  result = major*100 + elective*10 + score;
+  result = major + elective*10 + score*100;
   return result;
 }
 
@@ -113,11 +113,13 @@ void calculate(Node* course) {
   int mode = pickCalculationMode();
 
   printToTalGrade();
-  if(mode / 100 == 1)
+  if(mode % 10 == 1)
     printMajorGrade(course);
-  if(mode / 10 == 1)
+  mode /= 10;
+  if(mode % 10 == 1)
     printElectiveGrade(course);
-  if(mode / 1 == 1)
+  mode /= 10;
+  if(mode % 10 == 1)
     printScore(course);
 }
 
