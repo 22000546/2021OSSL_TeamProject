@@ -3,6 +3,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
+#include "manager.h"
 #include "essential.h"
 
 int main(void)
