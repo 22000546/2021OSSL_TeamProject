@@ -12,7 +12,7 @@ void searchCredit(Node* course);
 void searchGrade(Node* course); 
 
 // 평점 계산과 관련된 연산을 진행하는 함수
-void calculate();
+void calculate(Node* course);
 
 // 원하는 계산 결과를 선택하여 반환하는 함수
 int pickCalculationMode();
