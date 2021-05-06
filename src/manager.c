@@ -93,7 +93,6 @@ void searchGrade(Node* course) {
   }
 }
 
-
 int pickCalculationMode() {
   int result;
   int major, elective, score;
@@ -106,7 +105,7 @@ int pickCalculationMode() {
   printf("=> 백분위 환산 점수를 선택하시겠습니까? (예:1 / 아니오:0) : ");
   scanf("%d", &score);
 
-  result = major + elective*10 + score*100;
+  result = major*100 + elective*10 + score;
   return result;
 }
 
