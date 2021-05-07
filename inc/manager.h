@@ -23,13 +23,13 @@ void searchGrade(Node* course);
 float calculateGrade(char grade[]); 
 
 // 모든 입력된 데이터의 평점 평균을 계산하는 함수
-float calculateTotalGrade(char grade); 
+float calculateTotalGrade(Node* course); 
 
 // 입력된 데이터 중 전공 과목의 평점 평균을 계산하는 함수
-float calculateMajorGrade(char grade);
+float calculateMajorGrade(Node* course);
 
 // 입력된 데이터 중 교양 과목의 평점 평균을 계산하는 함수
-float calculateElectiveGrade(char grade);
+float calculateElectiveGrade(Node* course);
 
 // 계산된 평점을 백분위 점수로 환산하는 함수
 float convertToScore(float grade);
