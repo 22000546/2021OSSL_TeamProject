@@ -6,7 +6,7 @@ void searchName(Node* course) {
   char search[20];
   int scnt = 0;
 
-  printf("ì°¾ìœ¼ì‹œëŠ” ê³¼ëª©ì˜ ì´ë¦„ì„ ìž…ë ¥í•´ì£¼ì„¸ìš” : ");
+  printf("Ã£À¸½Ã´Â °ú¸ñÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
   scanf("%s", search);
 
   for(Node* i = course; i != NULL; i = i->next) {
@@ -16,8 +16,8 @@ void searchName(Node* course) {
   }
 
   if(scnt != 0) {
-    printf("=> ê²€ìƒ‰ ê²°ê³¼ìž…ë‹ˆë‹¤.\n");
-    printf("\në²ˆí˜¸   ìœ í˜•       ì´ë¦„         í•™ì      í‰ì \n");
+    printf("=> °Ë»ö °á°úÀÔ´Ï´Ù.\n");
+    printf("\n¹øÈ£   À¯Çü       ÀÌ¸§         ÇÐÁ¡     ÆòÁ¡\n");
     printf("===========================================\n");
     int index = 1;
     for(Node* i = course; i != NULL; i = i->next) {
@@ -27,7 +27,7 @@ void searchName(Node* course) {
      }
     }
   } else {
-    printf("ì°¾ìœ¼ì‹œëŠ” ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
+    printf("Ã£À¸½Ã´Â °á°ú°¡ ¾ø½À´Ï´Ù.\n");
   }
 }
 
@@ -35,7 +35,7 @@ void searchCredit(Node* course) {
   int search;
   int scnt = 0;
 
-  printf("ì°¾ìœ¼ì‹œëŠ” ê³¼ëª©ì˜ í•™ì ì„ ìž…ë ¥í•´ì£¼ì„¸ìš” : ");
+  printf("Ã£À¸½Ã´Â °ú¸ñÀÇ ÇÐÁ¡À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
   scanf("%d", &search);
 
   for(Node* i = course; i != NULL; i = i->next) {
@@ -45,8 +45,8 @@ void searchCredit(Node* course) {
   }
 
   if(scnt != 0) {
-    printf("=> ê²€ìƒ‰ ê²°ê³¼ìž…ë‹ˆë‹¤.\n");
-    printf("\në²ˆí˜¸   ìœ í˜•       ì´ë¦„         í•™ì      í‰ì \n");
+    printf("=> °Ë»ö °á°úÀÔ´Ï´Ù.\n");
+    printf("\n¹øÈ£   À¯Çü       ÀÌ¸§         ÇÐÁ¡     ÆòÁ¡\n");
     printf("===========================================\n");
     int index = 1;
     for(Node* i = course; i != NULL; i = i->next) {
@@ -56,7 +56,7 @@ void searchCredit(Node* course) {
      }
     }
   } else {
-    printf("ì°¾ìœ¼ì‹œëŠ” ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
+    printf("Ã£À¸½Ã´Â °á°ú°¡ ¾ø½À´Ï´Ù.\n");
   }
 }
 
@@ -64,10 +64,10 @@ void searchGrade(Node* course) {
   char search[4];
   int scnt = 0;
 
-  printf("ì°¾ìœ¼ì‹œëŠ” ê³¼ëª©ì˜ í‰ì ì„ ìž…ë ¥í•´ì£¼ì„¸ìš” : ");
+  printf("Ã£À¸½Ã´Â °ú¸ñÀÇ ÆòÁ¡À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
   scanf("%s", search);
 
-  // í‰ì ì´ A+, A0, B+, B0, C+, C0, D+, D0, F ë¡œ ì²˜ë¦¬ë˜ì—ˆë‹¤ê³  ê°€ì •
+  // ÆòÁ¡ÀÌ A+, A0, B+, B0, C+, C0, D+, D0, F ·Î Ã³¸®µÇ¾ú´Ù°í °¡Á¤
   for(Node* i = course; i != NULL; i = i->next) {
     if((i->grade[0] == search[0])&&(i->grade[1] == search[1])) {
       scnt ++;
@@ -77,8 +77,8 @@ void searchGrade(Node* course) {
   }
 
   if(scnt != 0) {
-    printf("=> ê²€ìƒ‰ ê²°ê³¼ìž…ë‹ˆë‹¤.\n");
-    printf("\në²ˆí˜¸   ìœ í˜•       ì´ë¦„         í•™ì      í‰ì \n");
+    printf("=> °Ë»ö °á°úÀÔ´Ï´Ù.\n");
+    printf("\n¹øÈ£   À¯Çü       ÀÌ¸§         ÇÐÁ¡     ÆòÁ¡\n");
     printf("===========================================\n");
     int index = 1;
     for(Node* i = course; i != NULL; i = i->next) {
@@ -88,11 +88,11 @@ void searchGrade(Node* course) {
      }
     }
   } else {
-    printf("ì°¾ìœ¼ì‹œëŠ” ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
+    printf("Ã£À¸½Ã´Â °á°ú°¡ ¾ø½À´Ï´Ù.\n");
   }
 }
 
-// í‰ì í‰ê·  ê³„ì‚°ì„ ìœ„í•œ í•¨ìˆ˜ êµ¬í˜„
+// ÆòÁ¡Æò±Õ °è»êÀ» À§ÇÑ ÇÔ¼ö ±¸Çö
 
 float calculateGrade(char grade[]) {
   float result = 0;
@@ -152,7 +152,7 @@ float convertToScore(float grade) {
   return score;
 }
 
-// í‰ì í‰ê·  ì¶œë ¥ì„ ìœ„í•œ í•¨ìˆ˜ êµ¬í˜„
+// ÆòÁ¡Æò±Õ Ãâ·ÂÀ» À§ÇÑ ÇÔ¼ö ±¸Çö
 
 void printTotalGrade(Node* course) {
   printf("printTotalGrade\n");
@@ -174,12 +174,12 @@ int pickCalculationMode() {
   int result;
   int major, elective, score;
 
-  printf("=> ê²°ê³¼ë¥¼ ë³´ê³  ì‹¶ì€ ê³„ì‚°ì„ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
-  printf("=> ì „ê³µ í‰ì í‰ê· ì„ ì„ íƒí•˜ì‹œê² ìŠµë‹ˆê¹Œ? (ì˜ˆ:1 / ì•„ë‹ˆì˜¤:0) : ");
+  printf("=> °á°ú¸¦ º¸°í ½ÍÀº °è»êÀ» ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
+  printf("=> Àü°ø ÆòÁ¡Æò±ÕÀ» ¼±ÅÃÇÏ½Ã°Ú½À´Ï±î? (¿¹:1 / ¾Æ´Ï¿À:0) : ");
   scanf("%d", &major);
-  printf("=> êµì–‘ í‰ì í‰ê· ì„ ì„ íƒí•˜ì‹œê² ìŠµë‹ˆê¹Œ? (ì˜ˆ:1 / ì•„ë‹ˆì˜¤:0) : ");
+  printf("=> ±³¾ç ÆòÁ¡Æò±ÕÀ» ¼±ÅÃÇÏ½Ã°Ú½À´Ï±î? (¿¹:1 / ¾Æ´Ï¿À:0) : ");
   scanf("%d", &elective);
-  printf("=> ë°±ë¶„ìœ„ í™˜ì‚° ì ìˆ˜ë¥¼ ì„ íƒí•˜ì‹œê² ìŠµë‹ˆê¹Œ? (ì˜ˆ:1 / ì•„ë‹ˆì˜¤:0) : ");
+  printf("=> ¹éºÐÀ§ È¯»ê Á¡¼ö¸¦ ¼±ÅÃÇÏ½Ã°Ú½À´Ï±î? (¿¹:1 / ¾Æ´Ï¿À:0) : ");
   scanf("%d", &score);
 
   result = major + elective*10 + score*100;

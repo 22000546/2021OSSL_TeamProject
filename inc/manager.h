@@ -2,43 +2,43 @@
 #define __MANAGER_H__
 #include "essential.h"
 
-// ê³¼ëª© ì´ë¦„ìœ¼ë¡œ ê²€ìƒ‰í•˜ëŠ” í•¨ìˆ˜
+// °ú¸ñ ÀÌ¸§À¸·Î °Ë»öÇÏ´Â ÇÔ¼ö
 void searchName(Node* course); 
 
-// ê³¼ëª©ì˜ í•™ì ìœ¼ë¡œ ê²€ìƒ‰í•˜ëŠ” í•¨ìˆ˜
+// °ú¸ñÀÇ ÇÐÁ¡À¸·Î °Ë»öÇÏ´Â ÇÔ¼ö
 void searchCredit(Node* course); 
 
-// í‰ì ìœ¼ë¡œ ê²€ìƒ‰í•˜ëŠ” í•¨ìˆ˜
+// ÆòÁ¡À¸·Î °Ë»öÇÏ´Â ÇÔ¼ö
 void searchGrade(Node* course); 
 
 // *****************************
-//////// ê³„ì‚°ê³¼ ê´€ë ¨ëœ í•¨ìˆ˜ ////////
+//////// °è»ê°ú °ü·ÃµÈ ÇÔ¼ö ////////
 // *****************************
 
 // *****************************
-// ì£¼ì–´ì§„ í‰ì ì˜ í‰ê· ì„ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜
+// ÁÖ¾îÁø ÆòÁ¡ÀÇ Æò±ÕÀ» °è»êÇÏ´Â ÇÔ¼ö
 // *****************************
 
-// ì£¼ì–´ì§„ í‰ì ì„ ìˆ«ìžë¡œ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜
+// ÁÖ¾îÁø ÆòÁ¡À» ¼ýÀÚ·Î °è»êÇÏ´Â ÇÔ¼ö
 float calculateGrade(char grade[]); 
 
-// ëª¨ë“  ìž…ë ¥ëœ ë°ì´í„°ì˜ í‰ì  í‰ê· ì„ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜
+// ¸ðµç ÀÔ·ÂµÈ µ¥ÀÌÅÍÀÇ ÆòÁ¡ Æò±ÕÀ» °è»êÇÏ´Â ÇÔ¼ö
 float calculateTotalGrade(Node* course); 
 
-// ìž…ë ¥ëœ ë°ì´í„° ì¤‘ ì „ê³µ ê³¼ëª©ì˜ í‰ì  í‰ê· ì„ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜
+// ÀÔ·ÂµÈ µ¥ÀÌÅÍ Áß Àü°ø °ú¸ñÀÇ ÆòÁ¡ Æò±ÕÀ» °è»êÇÏ´Â ÇÔ¼ö
 float calculateMajorGrade(Node* course);
 
-// ìž…ë ¥ëœ ë°ì´í„° ì¤‘ êµì–‘ ê³¼ëª©ì˜ í‰ì  í‰ê· ì„ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜
+// ÀÔ·ÂµÈ µ¥ÀÌÅÍ Áß ±³¾ç °ú¸ñÀÇ ÆòÁ¡ Æò±ÕÀ» °è»êÇÏ´Â ÇÔ¼ö
 float calculateElectiveGrade(Node* course);
 
-// ê³„ì‚°ëœ í‰ì ì„ ë°±ë¶„ìœ„ ì ìˆ˜ë¡œ í™˜ì‚°í•˜ëŠ” í•¨ìˆ˜
+// °è»êµÈ ÆòÁ¡À» ¹éºÐÀ§ Á¡¼ö·Î È¯»êÇÏ´Â ÇÔ¼ö
 float convertToScore(float grade);
 
 // *****************************
-// ê³„ì‚°í•œ í‰ì í‰ê· ì„ ì¶œë ¥í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
+// °è»êÇÑ ÆòÁ¡Æò±ÕÀ» Ãâ·ÂÇÏ±â À§ÇÑ ÇÔ¼ö
 // *****************************
 
-// ëª¨ë“  ìž…ë ¥ëœ ë°ì´í„°ì˜ í‰ì í‰ê· ì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
+// ¸ðµç ÀÔ·ÂµÈ µ¥ÀÌÅÍÀÇ ÆòÁ¡Æò±ÕÀ» Ãâ·ÂÇÏ´Â ÇÔ¼ö
 void printTotalGrade(Node* course);
 
 void printMajorGrade(Node* course);
@@ -48,13 +48,13 @@ void printElectiveGrade(Node* course);
 void printScore(Node* course);
 
 // *****************************
-// ê³„ì‚° í•¨ìˆ˜ì˜ ì „ì²´ì ì¸ ì‹¤í–‰ì„ ìœ„í•œ í•¨ìˆ˜
+// °è»ê ÇÔ¼öÀÇ ÀüÃ¼ÀûÀÎ ½ÇÇàÀ» À§ÇÑ ÇÔ¼ö
 // *****************************
 
-// ì›í•˜ëŠ” ê³„ì‚° ê²°ê³¼ë¥¼ ì„ íƒí•˜ì—¬ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
+// ¿øÇÏ´Â °è»ê °á°ú¸¦ ¼±ÅÃÇÏ¿© ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö
 int pickCalculationMode();
 
-// í‰ì  ê³„ì‚°ê³¼ ê´€ë ¨ëœ ì—°ì‚°ì„ ì§„í–‰í•˜ëŠ” í•¨ìˆ˜
+// ÆòÁ¡ °è»ê°ú °ü·ÃµÈ ¿¬»êÀ» ÁøÇàÇÏ´Â ÇÔ¼ö
 void calculate(Node* course);
 
 #endif
