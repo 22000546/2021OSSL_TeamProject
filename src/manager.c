@@ -114,8 +114,7 @@ float calculateGrade(char grade[]) {
 }
 
 float convertToScore(float grade) {
-  float score;
-
+  float score = 60 + ((grade - 1) * 40 / 3.5);
   return score;
 }
 
