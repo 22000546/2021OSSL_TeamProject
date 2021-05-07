@@ -55,13 +55,13 @@ int selectCourseNo(Node* course)
 {
     int num;
     do{
-        readCourse(course);
+        // readCourse(course);
 
         printf("\n번호를 입력하세요. (취소: 0)");
         printf("\n=> ");
         scanf("%d", &num);
 
-    }while(num > size(course));
+    }while(num > size(course) || num < 0);
 
     return num;
 }
@@ -133,6 +133,66 @@ void readCourse(Node* course)
     }
 }
 
+Node* updateCourse(Node* course, int index)
+{
+    Node* curr = course;
+
+    for(int i=0; i< index-1; i++)
+        curr = curr -> next;
+
+    while(1)
+    {
+        int num;
+
+        printf("\n//////////// 수정 메뉴 ////////////\n");
+        printf("0. 종료\n");
+        printf("1. 전공/교양 여부\n");
+        printf("2. 강의명\n");
+        printf("3. 학점\n");
+        printf("4. 평점\n");
+        
+        printf("\n수정할 정보를 선택하세요. (번호 입력)");
+        printf("\n=> ");
+        scanf("%d", &num);
+
+        switch(num)
+        {   
+            case 0:
+                printf("종료되었습니다.\n");
+                return course;
+            case 1:
+                printf("전공/교양 여부? (전공 : 1, 교양 : 2)");
+                printf("\n=> ");
+                scanf("%d", &curr->type);
+                printf("수정되었습니다.\n");
+                break;
+            case 2:
+                while(getchar() != '\n');
+                printf("강의 이름(4글자까지)?");
+                printf("\n=> ");
+                scanf("%[^\n]s", curr->name);
+                printf("수정되었습니다.\n");
+                break;
+            case 3:
+                 printf("학점?");
+                 printf("\n=> ");
+                 scanf("%d", &curr->credit);
+                 printf("수정되었습니다.\n");
+                 break;
+            case 4:
+                while(getchar() != '\n');
+                printf("평점?");
+                printf("\n=> ");
+                fgets(curr->grade, sizeof(curr->grade), stdin);
+                printf("수정되었습니다.\n");
+                break;
+            default:
+                printf("오류 : 다시 입력하세요!\n");
+                break;
+        }
+    }
+}
+
 Node* deleteCourse(Node* course, int index)
 {
     if(index == 0) {
@@ -145,7 +205,7 @@ Node* deleteCourse(Node* course, int index)
         course = course->next;
         free(target);
 
-        return NULL;
+        return course;
     }
     Node* prev = NULL;
     Node* curr = course;
