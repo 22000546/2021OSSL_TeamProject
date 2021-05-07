@@ -1,5 +1,3 @@
-#ifndef __MANAGER_H__
-#define __MANAGER_H__
 #include "../inc/essential.h"
 #include "../inc/manager.h"
 #include <string.h>
@@ -139,5 +137,3 @@ void calculate(Node* course) {
   if(mode % 10 == 1)
     printScore(course);
 }
-
-#endif
