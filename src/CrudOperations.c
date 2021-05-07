@@ -76,6 +76,8 @@ int printMenu(void)
         printf("3. 목록 수정하기\n");
         printf("4. 목록 삭제하기\n");
 
+        printf("10. 학점 계산하기\n");
+
         printf("\n번호를 입력하세요.");
         printf("\n=> ");
         scanf("%d", &num);
