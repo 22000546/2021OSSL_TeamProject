@@ -155,19 +155,25 @@ float convertToScore(float grade) {
 // 평점평균 출력을 위한 함수 구현
 
 void printTotalGrade(Node* course) {
-  printf("printTotalGrade\n");
+  printf("전체 평점평균 : ");
+  printf("%.2f\n", calculateTotalGrade(course));
 }
 
 void printMajorGrade(Node* course) {
-  printf("printMajorGrade\n");
+  printf("전공 평점평균 : ");
+  printf("%.2f\n", calculateMajorGrade(course));
 }
 
 void printElectiveGrade(Node* course) {
-  printf("printElectiveGrade\n");
+  printf("교양 평점평균 : ");
+  printf("%.2f\n", calculateElectiveGrade(course));
 }
 
 void printScore(Node* course) {
-  printf("printScore\n");
+  float grade = calculateTotalGrade(course);
+  float score = convertToScore(grade);
+  printf("백분위 환산점수 : ");
+  printf("%.2f\n", score);
 }
 
 int pickCalculationMode() {
@@ -189,6 +195,7 @@ int pickCalculationMode() {
 void calculate(Node* course) {
   int mode = pickCalculationMode();
 
+  printf("\n=> 계산 결과입니다.\n\n");
   printTotalGrade(course);
   if(mode % 10 == 1)
     printMajorGrade(course);
