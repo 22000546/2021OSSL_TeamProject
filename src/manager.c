@@ -92,6 +92,35 @@ void searchGrade(Node* course) {
   }
 }
 
+// 평점평균 계산을 위한 함수 구현
+
+float calculateGrade(char grade[]) {
+  float result = 0;
+  if(grade[0] == 'A')
+    result = 4;
+  else if(grade[0] == 'B')
+    result = 3;
+  else if(grade[0] == 'C')
+    result = 2;
+  else if(grade[0] == 'D')
+    result = 1;
+  else if(grade[0] == 'F')
+    result = 0;
+
+  if(grade[1] == '+')
+    result += 0.5;
+
+  return result;
+}
+
+float convertToScore(float grade) {
+  float score;
+
+  return score;
+}
+
+// 평점평균 출력을 위한 함수 구현
+
 void printTotalGrade(Node* course) {
   printf("printTotalGrade\n");
 }
