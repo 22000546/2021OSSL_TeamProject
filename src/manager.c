@@ -2,6 +2,7 @@
 #define __MANAGER_H__
 #include "../inc/essential.h"
 #include "../inc/manager.h"
+#include <string.h>
 
 void searchName(Node* course) {
   char search[20];
