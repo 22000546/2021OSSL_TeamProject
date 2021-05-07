@@ -75,6 +75,9 @@ int main(void)
             case 9:
                 searchGrade(head);
                 break;
+            case 10:
+                calculate(head);
+                break;
         }
     }
 }
