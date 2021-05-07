@@ -93,6 +93,22 @@ void searchGrade(Node* course) {
   }
 }
 
+void printTotalGrade(Node* course) {
+  printf("printTotalGrade\n");
+}
+
+void printMajorGrade(Node* course) {
+  printf("printMajorGrade\n");
+}
+
+void printElectiveGrade(Node* course) {
+  printf("printElectiveGrade\n");
+}
+
+void printScore(Node* course) {
+  printf("printScore\n");
+}
+
 int pickCalculationMode() {
   int result;
   int major, elective, score;
@@ -112,7 +128,7 @@ int pickCalculationMode() {
 void calculate(Node* course) {
   int mode = pickCalculationMode();
 
-  printToTalGrade();
+  printTotalGrade(course);
   if(mode % 10 == 1)
     printMajorGrade(course);
   mode /= 10;
