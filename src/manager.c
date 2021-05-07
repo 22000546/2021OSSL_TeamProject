@@ -113,6 +113,40 @@ float calculateGrade(char grade[]) {
   return result;
 }
 
+float calculateTotalGrade(Node* course) {
+  float gradesum = 0, creditsum = 0;
+  for(Node* i = course; i != NULL; i = i->next) {
+    gradesum += i->credit * calculateGrade(i->grade);
+    creditsum += i->credit;
+  }
+  float gradeaverage = gradesum / creditsum;
+  return gradeaverage;
+}
+
+float calculateMajorGrade(Node* course) {
+  float gradesum = 0, creditsum = 0;
+  for(Node* i = course; i != NULL; i = i->next) {
+    if(i->type == 1) {
+      gradesum += i->credit * calculateGrade(i->grade);
+      creditsum += i->credit;
+    }
+  }
+  float gradeaverage = gradesum / creditsum;
+  return gradeaverage;
+}
+
+float calculateElectiveGrade(Node* course) {
+  float gradesum = 0, creditsum = 0;
+  for(Node* i = course; i != NULL; i = i->next) {
+    if(i->type == 1) {
+      gradesum += i->credit * calculateGrade(i->grade);
+      creditsum += i->credit;
+    }
+  }
+  float gradeaverage = gradesum / creditsum;
+  return gradeaverage;
+}
+
 float convertToScore(float grade) {
   float score = 60 + ((grade - 1) * 40 / 3.5);
   return score;
