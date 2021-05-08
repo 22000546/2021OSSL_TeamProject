@@ -73,14 +73,26 @@ int main(void)
                     else{
                         saveData(fcourse, head);
                         printf("저장되었습니다.\n");
-                        fclose(fcourse);
                     }
+                    fclose(fcourse);
                 }
                 break;
             }
             //불러오기
             case 6:
+            {
+                FILE* fcourse = fopen("sampleCourses.txt", "r");
+
+                if(fcourse == NULL)
+                    printf("오류 : 불러올 데이터가 없습니다!\n");
+                
+                else{
+                    head = loadData(fcourse, head);
+                    printf("데이터를 불러오는 데 성공했습니다.\n");
+                }
+                fclose(fcourse);
                 break;
+            }
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
