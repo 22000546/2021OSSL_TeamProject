@@ -110,8 +110,8 @@ Node* createCourse(Node* course) // Node* course == Node* HEAD in main
     while(getchar() != '\n');
     printf("ÆòÁ¡?");
     printf("\n=> ");
-    fgets(newNode->grade, sizeof(newNode->grade), stdin);
-    //scanf("%s", newNode->grade);
+    //fgets(newNode->grade, sizeof(newNode->grade), stdin);
+    scanf("%s", newNode->grade);
 
     newNode->next = NULL;
 
@@ -229,14 +229,33 @@ Node* deleteCourse(Node* course, int index)
 void saveData(FILE* fcourse, Node* course)
 {
     Node* curr = course;
+    int lineFeed = size(course) -1;
 
     while(curr != NULL)
     {
-        fprintf(fcourse, "%s       %-8s       %d       %s", courseType(curr->type), curr->name, curr->credit, curr->grade);
+        fprintf(fcourse, "%d       %-8s       %d       %s", curr->type, curr->name, curr->credit, curr->grade);
         curr = curr->next;
+        if(lineFeed)
+        {
+            fputs("\n\n", fcourse);
+            lineFeed--;
+        }
     }
 }
 
+Node* loadData(FILE* fcourse, Node* course)
+{
+    if(!empty(course)) course = clear(course);
+
+    while(!feof(fcourse)){
+        Node* newNode = (Node*)malloc(sizeof(Node));
+        fscanf(fcourse, "%d %s %d %s", &newNode->type, newNode->name, &newNode->credit, newNode->grade);
+        newNode->next = NULL;
+        if(empty(course)) course = newNode;
+        else last(course)->next = newNode;
+    }
+    return course;
+}
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
