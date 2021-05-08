@@ -146,7 +146,7 @@ Node* updateCourse(Node* course, int index)
     {
         int num;
 
-        printf("\n//////////// 수정 메뉴 ////////////\n");
+        printf("\n++++++++++++ 수정 메뉴 ++++++++++++\n");
         printf("0. 종료\n");
         printf("1. 전공/교양 여부\n");
         printf("2. 강의명\n");
