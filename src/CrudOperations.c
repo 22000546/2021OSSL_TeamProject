@@ -73,9 +73,10 @@ int printMenu(void)
         printf("0. 종료\n");
         printf("1. 강의 추가하기\n");
         printf("2. 추가한 강의 보기\n");
-        printf("3. 강의 수정하기\n");
+        printf("3. 강의 정보 수정하기\n");
         printf("4. 강의 삭제하기\n");
-        printf("5. 강의 목록 저장하기\n");
+        printf("5. 강의 정보 저장하기\n");
+        printf("6. 강의 정보 불러오기\n");
 
         printf("10. 학점 계산하기\n");
 
