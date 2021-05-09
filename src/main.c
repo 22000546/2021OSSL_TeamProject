@@ -21,16 +21,16 @@ int main(void)
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-            // 종료
+            // EXIT
             case 0:
                 clear(head);
                 return 0;
-            // 추가
+            // CREATE
             case 1:
                 head = createCourse(head);
                 printf("추가되었습니다.\n");
                 break;
-            // 읽기
+            // READ
             case 2:
                 if(empty(head)) 
                     printf("오류 : 추가된 강의가 없습니다!\n");
@@ -38,7 +38,7 @@ int main(void)
                 else 
                     readCourse(head);
                 break;
-            // 수정
+            // UPDATE
             case 3:
                 if(empty(head)) 
                     printf("오류 : 수정할 강의가 없습니다!\n");
@@ -47,7 +47,7 @@ int main(void)
                     head = updateCourse(head, selectCourseNo(head));
                 }
                 break;
-            // 삭제
+            // DELETE
             case 4:
                 if(empty(head)) 
                     printf("오류 : 삭제할 강의가 없습니다!\n");
@@ -57,8 +57,33 @@ int main(void)
                     printf("삭제되었습니다.\n");
                 }
                 break;
-            //저장
+            // DELETE ALL
             case 5:
+                if(empty(head)) 
+                    printf("오류 : 삭제할 강의가 없습니다!\n");
+                else{
+                    head = clear(head);
+                    printf("모두 삭제되었습니다.\n");
+                }
+                break;
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+            // CALCULATION
+            case 6:
+                calculate(head);
+                break;
+            // SEARCH
+            case 7:
+                //searchName(head);
+                //searchCredit(head);
+                //searchGrade(head);
+                break;
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+            // SAVE
+            case 8:
             {
                 if(empty(head)) {
                     printf("저장되었습니다. (데이터 없음)\n");
@@ -78,8 +103,8 @@ int main(void)
                 }
                 break;
             }
-            //불러오기
-            case 6:
+            // LOAD
+            case 9:
             {
                 FILE* fcourse = fopen("sampleCourses.txt", "r");
 
@@ -93,21 +118,6 @@ int main(void)
                 fclose(fcourse);
                 break;
             }
-//////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
-            case 7:
-                searchName(head);
-                break;
-            case 8:
-                searchCredit(head);
-                break;
-            case 9:
-                searchGrade(head);
-                break;
-            case 10:
-                calculate(head);
-                break;
         }
     }
 }

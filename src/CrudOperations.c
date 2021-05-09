@@ -70,15 +70,16 @@ int printMenu(void)
     int num;
 
         printf("\n///////평점 평균 계산기///////\n");
-        printf("0. 종료\n");
-        printf("1. 강의 추가하기\n");
-        printf("2. 추가한 강의 보기\n");
-        printf("3. 강의 정보 수정하기\n");
-        printf("4. 강의 삭제하기\n");
-        printf("5. 강의 정보 저장하기\n");
-        printf("6. 강의 정보 불러오기\n");
-
-        printf("10. 학점 계산하기\n");
+        printf("00. 종료\n");
+        printf("01. 강의 추가\n");
+        printf("02. 추가한 강의 표시\n");
+        printf("03. 강의 정보 수정\n");
+        printf("04. 강의 삭제\n");
+        printf("05. 모든 강의 삭제\n");
+        printf("06. 평점평균 계산\n");
+        printf("07. 강의 검색\n");
+        printf("08. 강의 정보 저장\n");
+        printf("09. 강의 정보 불러오기\n");
 
         printf("\n번호를 입력하세요.");
         printf("\n=> ");
