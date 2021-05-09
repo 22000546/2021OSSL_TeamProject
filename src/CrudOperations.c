@@ -70,15 +70,15 @@ int printMenu(void)
     int num;
 
         printf("\n///////평점 평균 계산기///////\n");
-        printf("00. 종료\n");
+        printf("00. 종료\t\t");
         printf("01. 강의 추가\n");
-        printf("02. 추가한 강의 표시\n");
+        printf("02. 추가한 강의 표시\t");
         printf("03. 강의 정보 수정\n");
-        printf("04. 강의 삭제\n");
+        printf("04. 강의 삭제\t\t");
         printf("05. 모든 강의 삭제\n");
-        printf("06. 평점평균 계산\n");
+        printf("06. 평점평균 계산\t");
         printf("07. 강의 검색\n");
-        printf("08. 강의 정보 저장\n");
+        printf("08. 강의 정보 저장\t");
         printf("09. 강의 정보 불러오기\n");
 
         printf("\n번호를 입력하세요.");
@@ -88,29 +88,29 @@ int printMenu(void)
     return num;
 }
 //////////////////////////////////////////////////////////////////////
-///////////////////// CRUD Functions /////////////////////////////////
+///////////////////// CRUD Operations ////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 // 전공/교양 여부, 강의명, 학점, 평점
 Node* createCourse(Node* course) // Node* course == Node* HEAD in main
 {
     Node* newNode = (Node*)malloc(sizeof(Node));
 
-    printf("전공/교양 여부? (전공 : 1, 교양 : 2)");
+    printf("강의 종류를 선택하세요. (전공 : 1, 교양 : 2)");
     printf("\n=> ");
     scanf("%d", &newNode->type);
 
     while(getchar() != '\n');
-    printf("강의 이름(4글자까지)?");
+    printf("강의 이름을 입력하세요.");
     printf("\n=> ");
     //fgets(newNode->name, sizeof(newNode->name), stdin);
     scanf("%[^\n]s", newNode->name);
 
-    printf("학점?");
+    printf("강의 학점을 입력하세요.");
     printf("\n=> ");
     scanf("%d", &newNode->credit);
 
     while(getchar() != '\n');
-    printf("평점?");
+    printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)");
     printf("\n=> ");
     //fgets(newNode->grade, sizeof(newNode->grade), stdin);
     scanf("%s", newNode->grade);
@@ -128,7 +128,7 @@ void readCourse(Node* course)
 {
     Node* curr = course;
     
-    printf("\n번호   유형       이름         학점     평점\n");
+    printf("\n번호   종류       이름         학점     평점\n");
     printf("===========================================\n");
 
     for(int i=0; curr != NULL; i++)
@@ -151,12 +151,12 @@ Node* updateCourse(Node* course, int index)
 
         printf("\n++++++++++++ 수정 메뉴 ++++++++++++\n");
         printf("0. 종료\n");
-        printf("1. 전공/교양 여부\n");
+        printf("1. 강의 종류\n");
         printf("2. 강의명\n");
         printf("3. 학점\n");
-        printf("4. 평점\n");
+        printf("4. 성적(평점)\n");
         
-        printf("\n수정할 정보를 선택하세요. (번호 입력)");
+        printf("\n수정할 정보에 해당하는 번호를 입력하세요.");
         printf("\n=> ");
         scanf("%d", &num);
 
@@ -166,27 +166,27 @@ Node* updateCourse(Node* course, int index)
                 printf("종료되었습니다.\n");
                 return course;
             case 1:
-                printf("전공/교양 여부? (전공 : 1, 교양 : 2)");
+                printf("강의 종류를 선택하세요. (전공 : 1, 교양 : 2)");
                 printf("\n=> ");
                 scanf("%d", &curr->type);
                 printf("수정되었습니다.\n");
                 break;
             case 2:
                 while(getchar() != '\n');
-                printf("강의 이름(4글자까지)?");
+                printf("강의 이름을 입력하세요.");
                 printf("\n=> ");
                 scanf("%[^\n]s", curr->name);
                 printf("수정되었습니다.\n");
                 break;
             case 3:
-                 printf("학점?");
+                 printf("강의 학점을 입력하세요.");
                  printf("\n=> ");
                  scanf("%d", &curr->credit);
                  printf("수정되었습니다.\n");
                  break;
             case 4:
                 while(getchar() != '\n');
-                printf("평점?");
+                printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)?");
                 printf("\n=> ");
                 fgets(curr->grade, sizeof(curr->grade), stdin);
                 printf("수정되었습니다.\n");
