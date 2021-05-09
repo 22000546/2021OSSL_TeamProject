@@ -69,7 +69,7 @@ int printMenu(void)
 {
     int num;
 
-        printf("\n///////평점 평균 계산기///////\n");
+        printf("\n//////////////평점 평균 계산기//////////////\n");
         printf("00. 종료\t\t");
         printf("01. 강의 추가\n");
         printf("02. 추가한 강의 표시\t");
@@ -140,6 +140,11 @@ void readCourse(Node* course)
 
 Node* updateCourse(Node* course, int index)
 {
+    if(index == 0) {
+        printf("취소되었습니다.\n");
+        return course;
+    }
+    
     Node* curr = course;
 
     for(int i=0; i< index-1; i++)

@@ -24,6 +24,7 @@ int main(void)
             // EXIT
             case 0:
                 clear(head);
+                printf("프로그램을 종료합니다.\n");
                 return 0;
             // CREATE
             case 1:
