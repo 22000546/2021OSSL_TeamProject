@@ -55,7 +55,7 @@ Node* deleteCourse(Node* course, int index);
 void saveData(FILE* fcourse, Node* course);
 
 // 텍스트 파일에 저장한 강의 목록을 불러온다.
-Node* loadData(Node* course);
+Node* loadData(FILE* fcourse, Node* course);
 
 // 사용자에게 추가된 강의 목록 번호를 입력받는다.
 int selectCourseNo(Node* course);

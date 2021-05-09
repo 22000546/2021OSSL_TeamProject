@@ -59,10 +59,40 @@ int main(void)
                 break;
             //저장
             case 5:
+            {
+                if(empty(head)) {
+                    printf("저장되었습니다. (데이터 없음)\n");
+                    remove("sampleCourses.txt");
+                }
+                else
+                {
+                    FILE* fcourse = fopen("sampleCourses.txt", "wt");
+                    if(fcourse == NULL)
+                        printf("오류 : 저장에 실패했습니다!\n");
+
+                    else{
+                        saveData(fcourse, head);
+                        printf("저장되었습니다.\n");
+                    }
+                    fclose(fcourse);
+                }
                 break;
+            }
             //불러오기
             case 6:
+            {
+                FILE* fcourse = fopen("sampleCourses.txt", "r");
+
+                if(fcourse == NULL)
+                    printf("오류 : 불러올 데이터가 없습니다!\n");
+                
+                else{
+                    head = loadData(fcourse, head);
+                    printf("데이터를 불러오는 데 성공했습니다.\n");
+                }
+                fclose(fcourse);
                 break;
+            }
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

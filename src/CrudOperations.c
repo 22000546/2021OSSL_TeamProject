@@ -71,10 +71,12 @@ int printMenu(void)
 
         printf("\n///////평점 평균 계산기///////\n");
         printf("0. 종료\n");
-        printf("1. 목록 추가하기\n");
-        printf("2. 추가한 목록 보기\n");
-        printf("3. 목록 수정하기\n");
-        printf("4. 목록 삭제하기\n");
+        printf("1. 강의 추가하기\n");
+        printf("2. 추가한 강의 보기\n");
+        printf("3. 강의 정보 수정하기\n");
+        printf("4. 강의 삭제하기\n");
+        printf("5. 강의 정보 저장하기\n");
+        printf("6. 강의 정보 불러오기\n");
 
         printf("10. 학점 계산하기\n");
 
@@ -109,8 +111,8 @@ Node* createCourse(Node* course) // Node* course == Node* HEAD in main
     while(getchar() != '\n');
     printf("평점?");
     printf("\n=> ");
-    fgets(newNode->grade, sizeof(newNode->grade), stdin);
-    //scanf("%s", newNode->grade);
+    //fgets(newNode->grade, sizeof(newNode->grade), stdin);
+    scanf("%s", newNode->grade);
 
     newNode->next = NULL;
 
@@ -222,3 +224,39 @@ Node* deleteCourse(Node* course, int index)
 
     return course;
 }
+//////////////////////////////////////////////////////////////////////
+//////////////////////////// FILE I/O ////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+void saveData(FILE* fcourse, Node* course)
+{
+    Node* curr = course;
+    int lineFeed = size(course) -1;
+
+    while(curr != NULL)
+    {
+        fprintf(fcourse, "%d       %-8s       %d       %s", curr->type, curr->name, curr->credit, curr->grade);
+        curr = curr->next;
+        if(lineFeed)
+        {
+            fputs("\n\n", fcourse);
+            lineFeed--;
+        }
+    }
+}
+
+Node* loadData(FILE* fcourse, Node* course)
+{
+    if(!empty(course)) course = clear(course);
+
+    while(!feof(fcourse)){
+        Node* newNode = (Node*)malloc(sizeof(Node));
+        fscanf(fcourse, "%d %s %d %s", &newNode->type, newNode->name, &newNode->credit, newNode->grade);
+        newNode->next = NULL;
+        if(empty(course)) course = newNode;
+        else last(course)->next = newNode;
+    }
+    return course;
+}
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
