@@ -76,9 +76,7 @@ int main(void)
                 break;
             // SEARCH
             case 7:
-                //searchName(head);
-                //searchCredit(head);
-                //searchGrade(head);
+                search(head);
                 break;
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
