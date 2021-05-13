@@ -92,6 +92,25 @@ void searchGrade(Node* course) {
   }
 }
 
+void search(Node* course) {
+  int searchMode = 0;
+  printf("이름으로 검색하기 : 1\n");
+  printf("학점으로 검색하기 : 2\n");
+  printf("평점으로 검색하기 : 3\n");
+  printf("무엇으로 검색하시겠습니까? : ");
+  scanf("%d", &searchMode);
+
+  if(searchMode == 1)
+    searchName(course);
+  else if(searchMode == 2)
+    searchCredit(course);
+  else if(searchMode == 3)
+    searchGrade(course);
+  else
+    printf("입력값이 잘못되었습니다. 다시 시도해주세요.\n");
+
+}
+
 // 평점평균 계산을 위한 함수 구현
 
 float calculateGrade(char grade[]) {
