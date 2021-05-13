@@ -92,6 +92,36 @@ void searchGrade(Node* course) {
   }
 }
 
+void searchType(Node* course) {
+  int search = 0;
+  int scnt = 0;
+
+  printf("전공 강의를 검색하고 싶으시면 1, 교양 강의를 검색하고 싶으시면 2를 입력해주세요.\n");
+  scanf("%d", &search);
+
+  for(Node* i = course; i != NULL; i = i->next) {
+    if(i->type == search) {
+      scnt ++;
+    }
+  }
+
+  if(scnt != 0) {
+    printf("=> 검색 결과입니다.\n");
+    printf("\n번호   유형       이름         학점     평점\n");
+    printf("===========================================\n");
+    int index = 1;
+    for(Node* i = course; i != NULL; i = i->next) {
+     if(i->type == search) {
+        printf("%02d     %s       %-8s       %d       %s\n", index, courseType(i->type), i->name, i->credit, i->grade);
+        index ++;
+     }
+    }
+  } else {
+    printf("찾으시는 결과가 없습니다.\n");
+  }
+
+}
+
 void search(Node* course) {
   int searchMode = 0;
   printf("이름으로 검색하기 : 1\n");
@@ -106,6 +136,8 @@ void search(Node* course) {
     searchCredit(course);
   else if(searchMode == 3)
     searchGrade(course);
+  else if(searchMode == 4)
+    searchType(course);
   else
     printf("입력값이 잘못되었습니다. 다시 시도해주세요.\n");
 
