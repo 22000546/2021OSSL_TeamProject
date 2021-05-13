@@ -71,7 +71,7 @@ void searchGrade(Node* course) {
   for(Node* i = course; i != NULL; i = i->next) {
     if((i->grade[0] == search[0])&&(i->grade[1] == search[1])) {
       scnt ++;
-    } else if((search[0] = 'F')&&(i->grade[0] = 'F')) {
+    } else if((search[0] == 'F')&&(i->grade[0] == 'F')) {
       scnt ++;
     }
   }
@@ -82,7 +82,7 @@ void searchGrade(Node* course) {
     printf("===========================================\n");
     int index = 1;
     for(Node* i = course; i != NULL; i = i->next) {
-     if(((i->grade[0] == search[0])&&(i->grade[1] == search[1]))||((search[0] = 'F')&&(i->grade[0] = 'F'))) {
+     if(((i->grade[0] == search[0])&&(i->grade[1] == search[1]))||((search[0] == 'F')&&(i->grade[0] == 'F'))) {
         printf("%02d     %s       %-8s       %d       %s\n", index, courseType(i->type), i->name, i->credit, i->grade);
         index ++;
      }
