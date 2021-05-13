@@ -11,6 +11,9 @@ void searchName(Node* course);
 // 과목의 학점으로 검색하는 함수
 void searchCredit(Node* course); 
 
+// 과목의 전공/교양 여부로 검색하는 함수
+void searchType(Node* course);
+
 // 평점으로 검색하는 함수
 void searchGrade(Node* course); 
 
