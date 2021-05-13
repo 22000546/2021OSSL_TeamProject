@@ -96,7 +96,7 @@ void searchType(Node* course) {
   int search = 0;
   int scnt = 0;
 
-  printf("=> 전공 강의 (1), 교양 강의 (2) 중 하나를 입력해주세요.\n");
+  printf("=> 전공 강의 (1), 교양 강의 (2) 중 하나를 입력해주세요. : ");
   scanf("%d", &search);
 
   for(Node* i = course; i != NULL; i = i->next) {
