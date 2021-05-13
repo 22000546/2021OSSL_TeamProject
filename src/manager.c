@@ -96,7 +96,7 @@ void searchType(Node* course) {
   int search = 0;
   int scnt = 0;
 
-  printf("전공 강의를 검색하고 싶으시면 1, 교양 강의를 검색하고 싶으시면 2를 입력해주세요.\n");
+  printf("=> 전공 강의 (1), 교양 강의 (2) 중 하나를 입력해주세요.\n");
   scanf("%d", &search);
 
   for(Node* i = course; i != NULL; i = i->next) {
@@ -124,10 +124,9 @@ void searchType(Node* course) {
 
 void search(Node* course) {
   int searchMode = 0;
-  printf("이름으로 검색하기 : 1\n");
-  printf("학점으로 검색하기 : 2\n");
-  printf("평점으로 검색하기 : 3\n");
-  printf("무엇으로 검색하시겠습니까? : ");
+  printf("=> 검색 모드를 선택해주세요.\n");
+  printf("=> 이름 (1), 학점 (2), 평점 (3), 전공/교양 (4)\n");
+  printf("=> 무엇으로 검색하시겠습니까? : ");
   scanf("%d", &searchMode);
 
   if(searchMode == 1)
