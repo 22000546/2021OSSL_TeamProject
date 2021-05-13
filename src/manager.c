@@ -157,7 +157,7 @@ float calculateMajorGrade(Node* course) {
 float calculateElectiveGrade(Node* course) {
   float gradesum = 0, creditsum = 0;
   for(Node* i = course; i != NULL; i = i->next) {
-    if(i->type == 1) {
+    if(i->type == 2) {
       gradesum += i->credit * calculateGrade(i->grade);
       creditsum += i->credit;
     }
