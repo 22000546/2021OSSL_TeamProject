@@ -1,3 +1,4 @@
 *.o
 /src/*.exe
+/src/calGPA
 .DS_Store
