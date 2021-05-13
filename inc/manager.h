@@ -2,6 +2,9 @@
 #define __MANAGER_H__
 #include "essential.h"
 
+// 검색 인터페이스 함수
+void search(Node* course);
+
 // 과목 이름으로 검색하는 함수
 void searchName(Node* course); 
 
