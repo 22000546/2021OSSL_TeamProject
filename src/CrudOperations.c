@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "essential.h"
 
 //////////////////////////////////////////////////////////////////////
@@ -90,6 +91,52 @@ int printMenu(void)
 //////////////////////////////////////////////////////////////////////
 ///////////////////// CRUD Operations ////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+void convertGrade(Node* c, char grade[]) {
+    while(1) {
+        if(strcmp(c->grade, "a+") == 0) {
+            strcpy(c->grade,"A+");
+            break;
+        }
+        else if(strcmp(c->grade, "b+") == 0) {
+            strcpy(c->grade, "B+");
+            break;
+        }
+        else if(strcmp(c->grade, "c+") == 0) {
+            strcpy(c->grade,"C+");
+            break;
+        }
+        else if(strcmp(c->grade, "d+") == 0) {
+            strcpy(c->grade, "D+");
+            break;
+        }
+        else if(strcmp(c->grade, "a") == 0) {
+            strcpy(c->grade,"A0");
+            break;
+        }
+        else if(strcmp(c->grade, "b") == 0) {
+            strcpy(c->grade, "B0");
+            break;
+        }
+        if(strcmp(c->grade, "c") == 0) {
+            strcpy(c->grade,"C0");
+            break;
+        }
+        else if(strcmp(c->grade, "d") == 0) {
+            strcpy(c->grade, "D0");
+            break;
+        }
+        else if(strcmp(c->grade, "f") == 0) {
+            strcpy(c->grade, "F");
+            break;
+        }
+        else {
+            printf("입력값이 잘못되었습니다. 다시 입력해주세요. : ");
+            scanf("%s", c->grade);
+        }
+    }
+}
+
 // 전공/교양 여부, 강의명, 학점, 평점
 Node* createCourse(Node* course) // Node* course == Node* HEAD in main
 {
@@ -114,6 +161,7 @@ Node* createCourse(Node* course) // Node* course == Node* HEAD in main
     printf("\n=> ");
     //fgets(newNode->grade, sizeof(newNode->grade), stdin);
     scanf("%s", newNode->grade);
+    convertGrade(newNode, newNode->grade);
 
     newNode->next = NULL;
 
@@ -194,6 +242,7 @@ Node* updateCourse(Node* course, int index)
                 printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)?");
                 printf("\n=> ");
                 fgets(curr->grade, sizeof(curr->grade), stdin);
+                convertGrade(curr, curr->grade);
                 printf("수정되었습니다.\n");
                 break;
             default:
