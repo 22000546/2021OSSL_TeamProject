@@ -11,7 +11,7 @@ typedef struct listNode{
     int type;    
     char name[20];
     int credit;
-    char grade[4]; // [A] [+] [\n] [\0]
+    char grade[3]; // [A] [+] [\0]
     struct listNode* next;
 }Node;
 
@@ -62,4 +62,12 @@ int selectCourseNo(Node* course);
 
 // 메뉴를 출력하고 그 선택값을 반환한다.
 int printMenu(void);
+
+// 사용자에게 입력받은 문자열이 성적(평점) 표기법에 맞는지 확인한다.
+// 성적(평점) 표기법 : A+, A0, B+, B0, C+, C0, D+, D0, F
+// 예시 :
+// input : a output : A0
+// input : A- output : (다시 입력받는다)
+// input : F0 output : (다시 입력받는다)
+int convertGrade(char c[]);
 #endif
