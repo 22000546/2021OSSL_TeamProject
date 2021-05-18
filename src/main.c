@@ -72,11 +72,15 @@ int main(void)
 //////////////////////////////////////////////////////////////////////
             // CALCULATION
             case 6:
-                calculate(head);
+                if(empty(head)) 
+                    printf("오류 : 추가된 강의가 없습니다!\n");
+                else calculate(head);
                 break;
             // SEARCH
             case 7:
-                search(head);
+                if(empty(head)) 
+                    printf("오류 : 추가된 강의가 없습니다!\n");
+                else search(head);
                 break;
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
