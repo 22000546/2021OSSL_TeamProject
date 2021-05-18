@@ -1,5 +1,6 @@
 #include "../inc/essential.h"
 #include "../inc/manager.h"
+#include <string.h>
 
 void searchName(Node* course) {
   char search[20];
@@ -60,13 +61,14 @@ void searchCredit(Node* course) {
 }
 
 void searchGrade(Node* course) {
-  char search[4];
+  char search[3];
   int scnt = 0;
 
-  printf("찾으시는 과목의 평점을 입력해주세요 : ");
-  scanf("%s", search);
+  do{
+    printf("찾으시는 과목의 평점을 입력해주세요 : ");
+    scanf("%2s", search);
+  }while(convertGrade(search));
 
-  // 평점이 A+, A0, B+, B0, C+, C0, D+, D0, F 로 처리되었다고 가정
   for(Node* i = course; i != NULL; i = i->next) {
     if((i->grade[0] == search[0])&&(i->grade[1] == search[1])) {
       scnt ++;
