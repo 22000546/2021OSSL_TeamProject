@@ -66,7 +66,7 @@ void searchGrade(Node* course) {
 
   do{
     printf("찾으시는 과목의 평점을 입력해주세요 : ");
-    scanf("%2s", search);
+    scanf("%2s%*s", search);
   }while(convertGrade(search));
 
   for(Node* i = course; i != NULL; i = i->next) {

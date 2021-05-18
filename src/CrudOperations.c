@@ -145,7 +145,7 @@ Node* createCourse(Node* course) // Node* course == Node* HEAD in main
         printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)");
         printf("\n=> ");
         //fgets(newNode->grade, sizeof(newNode->grade), stdin);
-        scanf("%2s", newNode->grade);
+        scanf("%2s%*s", newNode->grade);
     }while(convertGrade(newNode->grade));
 
     newNode->next = NULL;
@@ -228,7 +228,7 @@ Node* updateCourse(Node* course, int index)
                     printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)?");
                     printf("\n=> ");
                     //fgets(curr->grade, sizeof(curr->grade), stdin);
-                    scanf("%2s", curr->grade);
+                    scanf("%2s%*s", curr->grade);
                 }while(convertGrade(curr->grade));
                 printf("수정되었습니다.\n");
                 break;
