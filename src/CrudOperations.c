@@ -88,54 +88,38 @@ int printMenu(void)
 
     return num;
 }
+
+int convertGrade(char c[]) {
+    while(1) {
+        if((c[0] >= 'A' && c[0] <= 'D') || c[0] == 'F'){
+            // A, B, C, D
+            if(c[0] != 'F' && c[1] == '\0'){
+                c[1] = '0';
+                c[2] = '\0';
+                break;
+            }
+            // A+, A0, B+, B0, C+, C0, D+, D0
+            else if((c[0] != 'F' && c[1] == '+') || (c[0] != 'F' && c[1] == '0')) break;
+            // F
+            else if(c[0] == 'F' && c[1] == '\0') break;
+            // A-, F0, ...
+            else{
+                printf("오류 : 다시 입력하세요!\n");
+                return 1;
+            }
+        }
+        // 소문자->대문자 변환
+        else if((c[0] >= 'a' && c[0] <= 'd') || c[0] == 'f') c[0] -=32;
+        else{
+            printf("오류 : 다시 입력하세요!\n");
+            return 1;
+        }
+    }
+    return 0;
+}
 //////////////////////////////////////////////////////////////////////
 ///////////////////// CRUD Operations ////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-void convertGrade(Node* c, char grade[]) {
-    while(1) {
-        if(strcmp(c->grade, "a+") == 0) {
-            strcpy(c->grade,"A+");
-            break;
-        }
-        else if(strcmp(c->grade, "b+") == 0) {
-            strcpy(c->grade, "B+");
-            break;
-        }
-        else if(strcmp(c->grade, "c+") == 0) {
-            strcpy(c->grade,"C+");
-            break;
-        }
-        else if(strcmp(c->grade, "d+") == 0) {
-            strcpy(c->grade, "D+");
-            break;
-        }
-        else if(strcmp(c->grade, "a") == 0) {
-            strcpy(c->grade,"A0");
-            break;
-        }
-        else if(strcmp(c->grade, "b") == 0) {
-            strcpy(c->grade, "B0");
-            break;
-        }
-        if(strcmp(c->grade, "c") == 0) {
-            strcpy(c->grade,"C0");
-            break;
-        }
-        else if(strcmp(c->grade, "d") == 0) {
-            strcpy(c->grade, "D0");
-            break;
-        }
-        else if(strcmp(c->grade, "f") == 0) {
-            strcpy(c->grade, "F");
-            break;
-        }
-        else {
-            printf("입력값이 잘못되었습니다. 다시 입력해주세요. : ");
-            scanf("%s", c->grade);
-        }
-    }
-}
 
 // 전공/교양 여부, 강의명, 학점, 평점
 Node* createCourse(Node* course) // Node* course == Node* HEAD in main
@@ -156,12 +140,13 @@ Node* createCourse(Node* course) // Node* course == Node* HEAD in main
     printf("\n=> ");
     scanf("%d", &newNode->credit);
 
-    while(getchar() != '\n');
-    printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)");
-    printf("\n=> ");
-    //fgets(newNode->grade, sizeof(newNode->grade), stdin);
-    scanf("%s", newNode->grade);
-    convertGrade(newNode, newNode->grade);
+    do{
+        while(getchar() != '\n');
+        printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)");
+        printf("\n=> ");
+        //fgets(newNode->grade, sizeof(newNode->grade), stdin);
+        scanf("%2s", newNode->grade);
+    }while(convertGrade(newNode->grade));
 
     newNode->next = NULL;
 
@@ -238,11 +223,13 @@ Node* updateCourse(Node* course, int index)
                  printf("수정되었습니다.\n");
                  break;
             case 4:
-                while(getchar() != '\n');
-                printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)?");
-                printf("\n=> ");
-                fgets(curr->grade, sizeof(curr->grade), stdin);
-                convertGrade(curr, curr->grade);
+                do{
+                    while(getchar() != '\n');
+                    printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)?");
+                    printf("\n=> ");
+                    //fgets(curr->grade, sizeof(curr->grade), stdin);
+                    scanf("%2s", curr->grade);
+                }while(convertGrade(curr->grade));
                 printf("수정되었습니다.\n");
                 break;
             default:
