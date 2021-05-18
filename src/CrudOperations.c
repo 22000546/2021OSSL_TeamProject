@@ -89,31 +89,31 @@ int printMenu(void)
 }
 
 int convertGrade(char c[]) {
-        if((c[0] >= 'A' && c[0] <= 'D') || c[0] == 'F'){
-            // A, B, C, D
-            if(c[0] != 'F' && c[1] == '\0'){
-                c[1] = '0';
-                c[2] = '\0';
-            }
-            // A+, A0, B+, B0, C+, C0, D+, D0
-            else if((c[0] != 'F' && c[1] == '+') || (c[0] != 'F' && c[1] == '0'));
-            // F
-            else if(c[0] == 'F' && c[1] == '\0');
-            // A-, F0, ...
-            else{
+    if((c[0] >= 'A' && c[0] <= 'D') || c[0] == 'F'){
+        // A, B, C, D
+        if(c[0] != 'F' && c[1] == '\0'){
+            c[1] = '0';
+        }
+        // A+, A0, B+, B0, C+, C0, D+, D0
+        else if((c[0] != 'F' && c[1] == '+') || (c[0] != 'F' && c[1] == '0'));
+        // F
+        else if(c[0] == 'F' && c[1] == '\0');
+        // A-, F0, ...
+        else{
                 printf("오류 : 다시 입력하세요!\n");
                 return 1;
-            }
         }
-        // 소문자->대문자 변환
-        else if((c[0] >= 'a' && c[0] <= 'd') || c[0] == 'f'){
-            c[0] -=32;
-            return convertGrade(c);
-        }
-        else{
-            printf("오류 : 다시 입력하세요!\n");
-            return 1;
-        }
+    }
+    // 소문자->대문자 변환
+    else if((c[0] >= 'a' && c[0] <= 'd') || c[0] == 'f'){
+        c[0] -=32;
+        return convertGrade(c);
+    }
+    else{
+        printf("오류 : 다시 입력하세요!\n");
+        return 1;
+    }
+    c[2] = '\0';
     return 0;
 }
 //////////////////////////////////////////////////////////////////////
@@ -144,7 +144,7 @@ Node* createCourse(Node* course) // Node* course == Node* HEAD in main
         printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)");
         printf("\n=> ");
         //fgets(newNode->grade, sizeof(newNode->grade), stdin);
-        scanf("%2s%*s", newNode->grade);
+        scanf("%s", newNode->grade);
     }while(convertGrade(newNode->grade));
 
     newNode->next = NULL;
@@ -227,7 +227,7 @@ Node* updateCourse(Node* course, int index)
                     printf("강의 성적을 입력하세요. (A+, B0 등 문자로 입력)?");
                     printf("\n=> ");
                     //fgets(curr->grade, sizeof(curr->grade), stdin);
-                    scanf("%2s%*s", curr->grade);
+                    scanf("%s", curr->grade);
                 }while(convertGrade(curr->grade));
                 printf("수정되었습니다.\n");
                 break;
