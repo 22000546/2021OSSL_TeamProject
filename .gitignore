@@ -1,4 +1,5 @@
 *.o
 /src/*.exe
 /src/calGPA
+/src/sampleCourses.txt
 .DS_Store
